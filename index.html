@@ -856,34 +856,7 @@
     </div>
 
     <script type="module">
-    // Import Firebase SDK
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-
-    // Your Firebase Config
-    const firebaseConfig = {
-      apiKey: "AIzaSyBGq_JTV9xTo7hvef3OueY8GGzf3lAeOuo",
-      authDomain: "raildashboard-ac29b.firebaseapp.com",
-      projectId: "raildashboard-ac29b",
-      storageBucket: "raildashboard-ac29b.appspot.com",  // ✅ corrected from .firebasestorage.app
-      messagingSenderId: "688162390007",
-      appId: "1:688162390007:web:f0d957b5f10f584b59b8f2",
-      measurementId: "G-DZ09Y23XC6"
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-
-    // Check auth state (protect dashboard)
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        document.querySelector(".user-info").textContent = user.email;
-      } else {
-        // Not logged in → redirect to login
-        window.location.href = "login.html";
-      }
-    });
+    
 
     // Logout button
     document.querySelector(".footer-btn.primary").addEventListener("click", () => {
@@ -912,3 +885,4 @@
     updateDateTime();
     setInterval(updateDateTime, 1000);
 </script>
+
