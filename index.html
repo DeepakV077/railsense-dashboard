@@ -479,28 +479,124 @@
                 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
+/* Enhanced Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* Header stacking */
+    .header {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1rem;
+        text-align: center;
+    }
 
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .header-center {
-                margin: 0;
-                max-width: none;
-            }
-            
-            .dashboard {
-                padding: 1rem;
-                grid-template-columns: 1fr;
-            }
-        }
+    .header-left, .header-center, .header-right {
+        width: 100%;
+    }
 
-        .blinking {
-            animation: blink 2s infinite;
-        }
+    .header-center {
+        margin: 0.5rem 0;
+    }
+
+    .search-bar {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    /* Dashboard panels stack vertically */
+    .dashboard {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    /* Panel padding adjustment */
+    .panel {
+        padding: 1.25rem 1rem;
+    }
+
+    /* Overview Stats Cards */
+    .overview-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+    }
+
+    /* Alerts Grid stack */
+    .alerts-grid {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    /* Module Performance Panels */
+    .module-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Report Grid stack */
+    .report-grid {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    /* Progress bars */
+    .progress-container .progress-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .progress-bar {
+        width: 100%;
+    }
+
+    /* Logs Panel scrollable width */
+    .logs-container {
+        max-height: 200px;
+        overflow-x: hidden;
+    }
+
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+
+    .footer-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .calendar-mini, .schedule-list {
+        font-size: 0.85rem;
+    }
+
+    /* Map container height adjustment */
+    .map-container {
+        height: 200px;
+    }
+
+    /* Panel titles smaller */
+    .panel-title {
+        font-size: 1rem;
+    }
+
+    /* Module info smaller */
+    .module-info h4 {
+        font-size: 0.85rem;
+    }
+
+    .module-status {
+        font-size: 0.75rem;
+    }
+
+    /* Alert count font smaller */
+    .alert-count {
+        font-size: 1.25rem;
+    }
+}
+
 
         @keyframes blink {
             0%, 50% { opacity: 1; }
@@ -858,15 +954,6 @@
     <script type="module">
     
 
-    // Logout button
-    document.querySelector(".footer-btn.primary").addEventListener("click", () => {
-      signOut(auth).then(() => {
-        window.location.href = "login.html";
-      }).catch((error) => {
-        alert("Error logging out: " + error.message);
-      });
-    });
-
     // Date/Time updater
     function updateDateTime() {
       const now = new Date();
@@ -885,4 +972,3 @@
     updateDateTime();
     setInterval(updateDateTime, 1000);
 </script>
-
